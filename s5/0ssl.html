@@ -1,0 +1,2021 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Support Bootcamp</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20050728" />
+<meta name="author" content="Eric A. Meyer" />
+<meta name="company" content="Complex Spiral Consulting" />
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<!-- S5 JS -->
+<script src="ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>[Maidenhead 2012-05-021>
+<h2>SSL</h2>
+</div>
+
+<div class="handout">
+</div>
+
+</div>
+
+
+<div class="presentation">
+
+
+<div class="slide">
+<h1>SSL</h1>
+<h3>Alex Madon</h3>
+<h4>Alfresco</h4>
+</div>
+
+
+
+<div class="slide">
+<h1>What will we talk about?</h1>
+<ul>
+<li>Conventional encryption</li>
+<li>Public key encryption/digital signature</li>
+<li>TLS/SSL</li>
+<li>Questions and Lab</li>
+</ul>
+</div>
+
+
+
+
+<div class="slide">
+<h1>Encryption and decryption</h1>
+<ul>
+<li>plaintext or cleartext</li>
+<li>disguising plaintext=encryption</li>
+<li>ciphertext</li>
+<li>reverting ciphertext=decryption</li>
+</ul>
+
+<div class="handout">
+Data that can be read and understood without any special measures is called plaintext
+or cleartext. The method of disguising plaintext in such a way as to hide its substance
+is called encryption. Encrypting plaintext results in unreadable gibberish called
+ciphertext. You use encryption to make sure that information is hidden from anyone
+for whom it is not intended, even those who can see the encrypted data. The process
+of reverting ciphertext to its original plaintext is called decryption.
+The following figure shows this process.
+</div>
+</div>
+
+<div class="slide">
+<h1>Encryption and decryption</h1>
+<img width="80%" src="pics/encryption_decryption2.png"/>
+</div>
+
+<div class="slide">
+<h1>What is cryptography?</h1>
+
+The science of using mathematics to encrypt and decrypt data. 
+
+(not steganography)
+</div>
+
+
+</div>
+
+<div class="slide">
+<h1>How does cryptography work?</h1>
+
+
+<ul>
+<li>cryptographic algorithm, or cipher</li>
+<li>a mathematical function used in the encryption and decryption process</li>
+</ul>
+
+<div class="handout">
+
+A cryptographic algorithm, or cipher, is a mathematical function used in the encryption and decryption process. A cryptographic algorithm works in combination with a
+key - a word, number, or phrase - to encrypt the plaintext. The same plaintext
+encrypts to different ciphertext with different keys. The security of encrypted data is
+entirely dependent on two things: the strength of the cryptographic algorithm and the
+secrecy of the key.
+A cryptographic algorithm, plus all possible keys and all the protocols that make it
+work, comprise a cryptosystem.
+
+</div>
+</div>
+
+
+
+<div class="slide">
+<h1>Keys</h1>
+
+
+<ul>
+<li>Encrypt with akey</li>
+<li>Key=A word, number, or phrase, etc...</li>
+<li>Different ciphertext => different keys. </li>
+</ul>
+
+<div class="handout">
+
+A cryptographic algorithm, or cipher, is a mathematical function used in the encryption and decryption process. A cryptographic algorithm works in combination with a
+key - a word, number, or phrase - to encrypt the plaintext. The same plaintext
+encrypts to different ciphertext with different keys. The security of encrypted data is
+entirely dependent on two things: the strength of the cryptographic algorithm and the
+secrecy of the key.
+A cryptographic algorithm, plus all possible keys and all the protocols that make it
+work, comprise a cryptosystem.
+
+</div>
+</div>
+
+
+<div class="slide">
+<h1>Strong cryptography</h1>
+
+<ul>
+<li>Cryptographic strength measured by:
+<ul>
+<li>Time and Resources it would require to recover the plaintext.</li>
+</ul>
+</li>
+<li>Strong: is not possible to decipher 
+<ul>
+<li>before the end of the universe</li>
+<li>with all the planet computers</li>
+</ul>
+</ul>
+
+
+<div class="handout">
+
+
+"There are two kinds of cryptography in this world: cryptography that will stop your
+kid sister from reading your files, and cryptography that will stop major governments
+from reading your files. This book is about the latter."
+<i>Bruce Schneier, Applied Cryptography: Protocols, Algorithms, and Source Code in C</i>
+
+
+<br/>
+
+Cryptography can be strong or weak, as explained above. Cryptographic strength is
+measured in the time and resources it would require to recover the plaintext. The
+result of strong cryptography is ciphertext that is very difficult to decipher without
+possession of the appropriate decoding tool. How difficult? Given all of today's computing power and available time—even a billion computers doing a billion checks a
+second—it is not possible to decipher the result of strong cryptography before the end
+of the universe.
+</div>
+
+
+<div class="slide">
+<h1>But more than Cryptography strength</h1>
+
+
+<ul>
+<li>the strength of the cryptographic algorithm</li>
+<li>the secrecy of the key</li>
+</ul>
+
+<div class="handout">
+
+The security of encrypted data is
+entirely dependent on two things: the strength of the cryptographic algorithm and the
+secrecy of the key.
+</div>
+
+</div>
+
+
+
+<div class="slide">
+<h1>Two types of cryptography</h1>
+<ul>
+<li>Conventional cryptography</li>
+<li>Public key cryptography</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>Conventional cryptography: Names</h1>
+
+<ul>
+<li>conventional cryptography</li>
+<li>secret-key encryption</li>
+<li>symmetric-key encryption</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>Conventional cryptography: Picture</h1>
+<img width="80%" src="pics/conventional_crypto.png"/>
+</div>
+
+
+
+
+<div class="slide">
+<h1>Conventional cryptography: Origin and Examples</h1>
+<ul>
+<li>Caesar's cipher (OLD!)</li>
+<li>Data Encryption Standard (DES)</li>
+</ul>
+</div>
+
+
+
+
+
+<div class="slide">
+<h1>Conventional cryptography: example: Caesar's cipher</h1>
+Starting with
+<pre>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+</pre>
+and sliding everything up by 3, you get
+<pre>
+DEFGHIJKLMNOPQRSTUVWXYZABC
+</pre>
+where D=A, E=B, F=C, and so on.
+<br/>
+Using this scheme, the plaintext, 'SECRET' encrypts as 'VHFUHW'.
+<br/>
+<b>key is 3</b>
+</div>
+
+
+<div class="slide">
+<h1>Conventional cryptography: Pros/Cons</h1>
+<ul>
+<li>Pros: It is very fast.</li>
+<li>Cons: Problem: <b>key distribution</b>
+</li>
+</ul>
+<div class="handout">
+the persistent problem with conventional encryption is key distribution: how do you get the key to the recipient without someone
+intercepting it?
+</div>
+</div>
+
+
+
+
+
+<div class="slide">
+<h1>Public key cryptography</h1>
+<ul>
+<li>The problems of key distribution:</li>
+<li>solved by public key cryptography</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>Public key cryptography: Origin</h1>
+<ul>
+<li>Concept introduced by Whitfield Diffie and Martin Hellman (1975).</li>
+<li>British Secret Service: J H Ellis: few years before (1970)</li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>Public key cryptography: 2 sides, duality</h1>
+<ul>
+<li>Encryption: sender <b>encrypts</b> with recipient pub key</li>
+<li>Signature: sender <b>signs</b> with his private key</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>Public key cryptography: Encryption: Schema</h1>
+<img width="80%" src="pics/public_key_crypto.png"/>
+</div>
+
+
+<div class="slide">
+<h1>Public key cryptography: Signature: Schema</h1>
+<img width="70%" src="pics/digital_signature2.png"/>
+</div>
+<div class="slide">
+<h1>Uses of digital signatures</h1>
+<ul>
+<li><b>Authentication</b></li>
+<li>Integrity (better than hash)</li>
+<li>Non-repudiation</li>
+</ul>
+</div>
+
+
+
+
+<div class="slide">
+<h1>Public key cryptography: Examples</h1>
+<ul>
+<li>Elgamal (named for its inventor, Taher Elgamal),</li>
+<li>RSA (named for its inventors Rivest, Shamir, and  Adleman), </li>
+<li>Diffie-Hellman</li> 
+<li>DSA, the Digital Signature Algorithm, (invented by David Kravitz, for signature).</li>
+</ul>
+</div>
+
+
+
+
+
+<div class="slide">
+<h1>Public key cryptography: Pros/Cons</h1>
+<ul>
+<li>Cons: 
+<ul>
+<li>1000(!?) times slower than conventional</li>
+<li>limit on size(!)</li>
+</ul>
+</li>
+<li>Pros: no key issue</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>Note: Hash functions</h1>
+
+<ul>
+<li>The young man and the old camel > Hash=Sum of bytes</li>
+
+<li>The young camel and the old man > Hash=Sum of bytes</li>
+
+<li>cryptographic strength</li>
+</ul>
+<div class="handout">
+A trivial example of a hash function is to add all of the byte values of a message together, and take the sum
+modulus a maximum number say, 1024. It is not possible to reconstruct the original input stream from this
+sum. Another property of a hash algorithm is its cryptographic strength, or the ability for attackers to craft
+input designed to produce a given hash value. 
+</div>
+</div>
+
+
+<div class="slide">
+<h1>SSL/TLS: Combining the two!</h1>
+
+<h2>SOLUTION: Public key AND Conventional cryptography</h2>
+<ul>
+<li>distribute the key with Public key cryptography</li>
+<li>distribute the content with Conventional cryptography</li>
+</ul>
+</div>
+
+
+
+
+<div class="slide">
+<h1>SSL/TLS: names</h1>
+
+<ul>
+<li>key: private key</li>
+<li>cert: public key</li>
+</ul>
+</div>
+
+
+
+
+
+<div class="slide">
+<h1>SSL/TLS: protocol idea, simple</h1>
+
+<img width="70%" src="pics/ssl_protocol_alex.png"/>
+
+</div>
+
+
+
+
+<div class="slide">
+<h1>SSL/TLS: problem: man-in-the-middle</h1>
+
+<img  width="80%" src="pics/man_in_the_middle.png"/>
+
+</div>
+
+
+
+<div class="slide">
+<h1>SSL/TLS: CA: solution to man-in-the-middle</h1>
+<ul>
+<li>Signature and CA</li>
+<li>PKI</li>
+</ul>
+</div>
+
+
+
+<div class="slide">
+<h1>SSL/TLS: CA: signature</h1>
+
+<img  width="60%" src="pics/800px-Digital_Signature_diagram.svg.png"/>
+
+</div>
+
+
+
+<div class="slide">
+<h1>SSL/TLS: CA: CRL</h1>
+<ul>
+<li>CERT Revocation list</li>
+<li>http://crl.cacert.org/revoke.crl</li>
+<li>DigiNotar</li><!-- bankrupt ->
+</ul>
+</div>
+
+<!-- http://www.zytrax.com/tech/survival/ssl.html -->
+
+
+<!--
+<div class="slide">
+<h1></h1>
+<ul>This a simplified overview and additional data may be exchanged, for instance, the client can be requested to send an authenticating X.509 (SSL) certificate but the above describes the most common case and is illustrated in Figure 2 below:
+<img src="pics/ssl-protocol.gif"/>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>handshake</h1>
+<ul><img src="pics/ssl_handshake.png"/>
+<li></li>
+<li></li>
+</ul>
+</div>
+-->
+
+
+
+<div class="slide">
+<h1>SSL/TLS: names</h1>
+<ul>
+<li>SSL: Secure Socket Layer (Sockets is TCP/IP API)
+</li>
+<li>TLS: Transaction Layer Security (IETF standard SSL)
+</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>SSL/TLS: where in the stack?</h1>
+<ul><img src="pics/stack2.png"/>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+
+
+
+<div class="slide">
+<h1>SSL/TLS: network layers pic</h1>
+<img src="pics/ssl-layers.gif"/>
+</div>
+
+<div class="slide">
+<h1>SSL/TLS: Pros/Cons</h1>
+<ul>
+<li>Pros:
+<ul>
+<li>Easy to implement and use</li>
+<li>Deployed in most browsers, servers</li>
+</ul>
+<li>Cons:
+<ul>
+<li>Protects only if used by appl.</li>
+<li>Vulnerable to Clogging (<b>DOS</b>)</li>
+<li><b>TCP</b> only (no UDP)</li>
+<li>Headers exposed</li>
+</ul>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>SSL/TLS: Alternative 1: Add to Each Application
+</h1>
+<ul>
+<img src="pics/alt1b.png"/>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>Alternative 1: Pros/Cons</h1>
+<ul>
+<li>Pros:
+<ul>
+<li><b>easy, independent</b></li>
+<li>awareness of semantics</li>
+</ul>
+<li>Cons:
+<ul>
+<li><b>Change each app</b>, computer...</li>
+<li>Internet (network) Layer</li>
+<li>hard, wasteful, error-prone,</li>
+<li>must trust all computers</li>
+</li>
+<li>No protection for headers
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>Alternative 1: Examples</h1>
+<ul>
+<li>S/Key (login)</li>
+<li>Payment protocols, e.g. SET (credit card payments)</li>
+<li>Tools: XML security, <b>Kerberos</b>, ...</li>
+<li>Secure E-mail (S/MIME,<b>PGP</b>,...)</li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>Alternative 2: IP Security
+</h1>
+<img src="pics/alt2b.png"/>
+</div>
+
+<div class="slide">
+<h1>Alternative 2: Pros/Cons</h1>
+<ul>
+<li>Pros:
+<ul>
+<li>Protect all applications, data (IP header, addresses)</li>
+<li>No change to applications</li>
+<li>Gateway can protect many hosts</li>
+<li>Anti-clogging mechanisms</li>
+<li>Implemented by operating systems, Routers, ...</li>
+<li>Standard</li>
+
+</ul>
+
+<li>Cons:
+<ul>
+<li>Implementation,</li>
+<li>interoperability, availability</li>
+<li>Application awareness/control is difficult</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="slide">
+<h1>SSL/TLS: Easy: Proxy</h1>
+<ul>
+<li>stunnel: impas, https, etc..</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>SSL/TLS: Key and Cert formats</h1>
+<ul>
+<li>X.509</li>
+<li>DER(Distinguished Encoding Rules) binary</li>
+<li>PEM (Privacy Enhanced Mail) ascii base64 encode</li>
+<li>PKCS#12 file (.pfx or .p12) archive</li>
+</div>
+
+
+
+<div class="slide">
+<h1>SSL/TLS: Swiss Army Knife</h1>
+<ul>
+<li><b>openssl</b></li>
+<li>library + command line</li>
+<li>(keytool)</li>
+
+</div>
+
+
+<div class="slide">
+<h1>SSL/TLS: LABS</h1>
+</div>
+
+
+<div class="slide">
+<h1>SSL/TLS: LAB 1: encryption</h1>
+<pre>
+# Conventionnal encryption:
+# Encrypt a file using triple DES in CBC mode with password on command line
+
+openssl enc -des3 -e -k mypassword -in file.txt  -out file.des3
+openssl enc -des3 -d -k mypassword -in file.des3 -out file_dec.txt
+
+
+# Public key encryption:
+
+# generate the private key:
+openssl genrsa -out private.pem 1024
+# generate the publick key:
+openssl rsa -in private.pem -out public.pem -outform PEM -pubout
+# encrypt:
+# -pubin: the input file is an RSA public key.
+# -certin: the input is a certificate containing an RSA public key.
+openssl rsautl -encrypt -inkey public.pem  -in file_small.txt -out file_small.ssl -pubin 
+openssl rsautl -decrypt -inkey private.pem -in file_small.ssl -out file_small_dec.txt
+# M: max number of bytes 
+# which can be encrypted with a particular key size with the following:
+
+# M=((KeySize - 384) / 8) + 37
+</pre>
+</div>
+
+
+<div class="slide">
+<h1>SSL/TLS: LAB 2: Client SSL 1</h1>
+<pre>
+# Create the CA Key and Certificate for signing Client Certs
+openssl genrsa -des3 -out ca.key 4096
+openssl req -new -x509 -days 365 -key ca.key -out ca.crt -subj '/CN=Alex CA'
+
+# Create the Server Key, CSR, and Certificate
+openssl genrsa -des3 -out server.key 1024
+(or 
+openssl genrsa  -out server.key 1024)
+openssl req -new -key server.key -out server.csr -subj '/CN=server1.foo'
+
+# We're self signing our own server cert here.  This is a no-no in production.
+openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+
+# Create the Client Key and CSR
+openssl genrsa -des3 -out client.key 1024
+openssl req -new -key client.key -out client.csr -subj '/CN=alfresco-system'
+
+# Sign the client certificate with our CA cert.  Unlike signing our own server cert, this is what we want to do.
+openssl x509 -req -days 365 -in client.csr -CA ca.crt -CAkey ca.key -set_serial 02 -out client.crt
+
+
+
+</pre>
+</div>
+
+
+<div class="slide">
+<h1>SSL/TLS: LAB 2: Client SSL 2</h1>
+encryption, signature (authentication X2)
+<pre>
+
+# check the subject of the cert
+openssl x509 -subject -issuer -noout -in ca.crt
+openssl x509 -subject -issuer -noout -in client.crt
+openssl x509 -subject -issuer -noout -in server.crt
+# or more details
+openssl x509 -text -noout -in ca.crt
+openssl x509 -text -noout -in client.crt
+openssl x509 -text -noout -in server.crt
+
+
+</pre>
+</div>
+
+
+<div class="slide">
+<h1>SSL/TLS: LAB 2: Client SSL 3</h1>
+<pre>
+# package the client private and public keys in a P12 
+(openssl pkcs12 -export -out client.p12 -in client.crt -inkey client.key -chain) # requires the CA cert in standard location
+openssl pkcs12 -export -out client.p12 -in client.crt -inkey client.key -certfile ca.crt
+# print some info (check CA is included)
+openssl pkcs12 -info -in client.p12 -nodes
+openssl pkcs12 -info -in client.p12 -nokeys
+
+
+
+
+</pre>
+</div>
+
+
+
+<div class="slide">
+<h1>SSL/TLS: LAB 2: Client SSL 4</h1>
+<pre>
+
+# in firefox https://server1.foo:443/index.html
+This Connection is Untrusted
+The certificate is not trusted because the issuer certificate is not trusted.
+# http://www.cyberciti.biz/faq/firefox-adding-trusted-ca/
+# advanced->encryption
+
+
+openssl s_client -CAfile ssl/compute/ca/ca.crt -connect server1.foo:443 
+
+openssl s_server -cert server.crt -key server.key -www
+https://server1.foo:4433/
+
+
+http://forums.mozillazine.org/viewtopic.php?f=38&t=372781
+If you dont know your master password paste this in your address bar of firefox:
+
+chrome://pippki/content/resetpassword.xul 
+and click Reset button. Next time you will be prompt for a new master password for Firefox!
+
+
+(Error code: sec_error_reused_issuer_and_serial)
+
+
+</pre>
+</div>
+
+
+
+
+
+<div class="slide">
+<h1>SSL/TLS: LAB 2: Client SSL 5</h1>
+<pre>
+&lt;VirtualHost server1.foo:443>
+DocumentRoot "/var/www/SSL"
+ServerName "server1.foo"
+SSLEngine on
+CustomLog logs/ssl_request_log "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x %{SSL_CLIENT_S_DN_CN}x \"%r\" %b"
+SSLCipherSuite HIGH:MEDIUM
+SSLProtocol all -SSLv2
+SSLCertificateFile /home/madon/ssl/compute/ca/server.crt
+SSLCertificateKeyFile /home/madon/ssl/compute/ca/server.key
+SSLCertificateChainFile /home/madon/ssl/compute/ca/ca.crt
+SSLCACertificateFile /home/madon/ssl/compute/ca/ca.crt
+&lt;Location "/">
+    SSLRequireSSL	
+     Options All
+     Order allow,deny
+     Allow from all
+&lt;/Location>
+# http://httpd.apache.org/docs/2.0/ssl/ssl_howto.html#certauthenticate
+SSLVerifyClient      none
+&lt;Directory /var/www/SSL/Certneeded>
+  SSLVerifyClient      require
+  SSLVerifyDepth       5
+  SSLCACertificateFile /home/madon/ssl/compute/ca/ca.crt
+  SSLOptions           +FakeBasicAuth
+  SSLRequireSSL
+  SSLRequire           %{SSL_CLIENT_S_DN_CN}  eq "alfresco-system" 
+&lt;/Directory>
+&lt;/VirtualHost>
+
+
+</pre>
+</div>
+
+
+
+<!-- 
+<div class="slide">
+<h1>openssl s_client</h1>
+
+<pre>
+s=subject
+i=issuer
+
+openssl s_client -showcerts -connect redhat.com:443
+
+madon@madona:~/alfresco_doc/kb$ openssl s_client -connect www.redhat.com:443
+CONNECTED(00000003)
+depth=1 C = US, O = Akamai Technologies Inc, CN = Akamai Subordinate CA 3
+verify error:num=20:unable to get local issuer certificate
+verify return:0
+---
+Certificate chain
+ 0 s:/C=US/L=Raleigh/O=Red Hat, Inc/OU=IT/ST=NORTH CAROLINA/CN=*.redhat.com
+   i:/C=US/O=Akamai Technologies Inc/CN=Akamai Subordinate CA 3
+ 1 s:/C=US/O=Akamai Technologies Inc/CN=Akamai Subordinate CA 3
+   i:/C=US/O=GTE Corporation/OU=GTE CyberTrust Solutions, Inc./CN=GTE CyberTrust Global Root
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIICszCCAhygAwIBAgIOAgAAAAABNMoAVStzfTAwDQYJKoZIhvcNAQEFBQAwUTEL
+MAkGA1UEBhMCVVMxIDAeBgNVBAoTF0FrYW1haSBUZWNobm9sb2dpZXMgSW5jMSAw
+HgYDVQQDExdBa2FtYWkgU3Vib3JkaW5hdGUgQ0EgMzAeFw0xMjAxMTAyMzU2NDla
+Fw0xMzAxMTAyMzU2NDlaMHMxCzAJBgNVBAYTAlVTMRAwDgYDVQQHEwdSYWxlaWdo
+MRUwEwYDVQQKEwxSZWQgSGF0LCBJbmMxCzAJBgNVBAsTAklUMRcwFQYDVQQIEw5O
+T1JUSCBDQVJPTElOQTEVMBMGA1UEAxQMKi5yZWRoYXQuY29tMIGfMA0GCSqGSIb3
+DQEBAQUAA4GNADCBiQKBgQDNKUvU6JnElSX3i5z3+lZZsoInpXlnlYhE6owUKRjX
+rGoN3GicuygCAnswxIOpElTL01zNx+sqTPYjZtt/JWg9pgwpP+JFbJQtrQl5Rs6F
+hJiM2kUZCk3LDvQIxQoID54VLnw1DLImCAfwaTxqDdyST6ODWm6/RzbkZS21/ZYB
+wwIDAQABo2wwajA5BgNVHR8EMjAwMC6gLKAqhihodHRwOi8vY3JsLmdsb2JhbHNp
+Z24ubmV0L0FrYW1haVN1YjMuY3JsMB0GA1UdDgQWBBT4uW1EptOUFsMZOibN2oG5
+pmTi/jAOBgNVHQ8BAf8EBAMCBSAwDQYJKoZIhvcNAQEFBQADgYEAC0WAfTm3IBVk
+pBB27mQch9WJRD2w+Sl482q6lOwGzN5FwlyHY4W+uJ+FbzX5jLPzs3kk9BhrpOmL
+5UCrxhIW3xO9JGWMU3AC/hj4Ul4QiaDPAma9GTOZnoZ6ECpCYguMnmHT07PMK1ML
+oOzsuZqC1gD8ql4PUDt3MBGBcWXxNx8=
+-----END CERTIFICATE-----
+subject=/C=US/L=Raleigh/O=Red Hat, Inc/OU=IT/ST=NORTH CAROLINA/CN=*.redhat.com
+issuer=/C=US/O=Akamai Technologies Inc/CN=Akamai Subordinate CA 3
+---
+No client certificate CA names sent
+---
+SSL handshake has read 1854 bytes and written 351 bytes
+---
+New, TLSv1/SSLv3, Cipher is AES256-SHA
+Server public key is 1024 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+SSL-Session:
+    Protocol  : SSLv3
+    Cipher    : AES256-SHA
+    Session-ID: 537AA3374049C1CE50294AB60C426C08EFBE00AD273CE4B1190726A50CFE7F3E
+    Session-ID-ctx: 
+    Master-Key: 139A17A1FC813C06612415943F55D09D8F2A791DFA15976E69C7583CFEF729C21D4BBB755F0864BCFD9ED4D0482965BB
+    Key-Arg   : None
+    PSK identity: None
+    PSK identity hint: None
+    Start Time: 1336571284
+    Timeout   : 7200 (sec)
+    Verify return code: 20 (unable to get local issuer certificate)
+---
+
+</pre>
+
+extract SSL server certificates with openssl s_client
+11/5/2003
+last updated 12/5/2010
+
+Ever need to troubleshoot SSL connectivity against a server that you don’t own? No problem! Use the s_client command line tool that comes with OpenSSL.
+
+It negotiates an SSL connection, step by step, and prints debugging info in excruciating detail. It also includes a dump of the server-side SSL certificate in PEM format. You can use that certificate to test offline, import into your client-side keystore, or anything else.
+
+For example, say you’re troubleshooting a connection to https://example.com/. You can use this (*nix) command line to connect on port 443 and examine the SSL handshake and server-side certificate:
+
+openssl s_client -connect example.com:443
+
+Happy authenticating!
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>apache client</h1>
+
+
+http://httpd.apache.org/docs/2.0/ssl/ssl_howto.html#certauthenticate
+
+How can I authenticate clients based on certificates when I know all my clients?
+<br/>
+When you know your user community (i.e. a closed user group situation), as it's the case for instance in an Intranet, you can use plain certificate authentication. All you have to do is to create client certificates signed by your own CA certificate ca.crt and then verify the clients against this certificate.
+httpd.conf
+
+<pre>
+# require a client certificate which has to be directly
+# signed by our CA certificate in ca.crt
+SSLVerifyClient require
+SSLVerifyDepth 1
+SSLCACertificateFile conf/ssl.crt/ca.crt
+</pre>
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>ssl curl client</h1>
+
+
+ <pre>
+      -E, --cert &lt;certificate[:password]>
+              (SSL) Tells curl to use the specified  client  certificate  file
+              when getting a file with HTTPS, FTPS or another SSL-based proto‐
+              col. The certificate must be in PEM  format.   If  the  optional
+              password  isn't  specified, it will be queried for on the termi‐
+              nal. Note that this option assumes a "certificate" file that  is
+              the  private  key  and the private certificate concatenated! See
+              --cert and --key to specify them independently.
+</pre>
+
+
+<pre>
+curl -E mycert.pem -F "fileupload=@foobar.png" https://example.com/secure-upload.php
+</pre>
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>ssh keys: login without username and password</h1>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+10. Why can't I use OpenSSL certificates with SSL client authentication?
+
+What will typically happen is that when a server requests authentication it will either not include your certificate or tell you that you have no client certificates (Netscape) or present you with an empty list box (MSIE). The reason for this is that when a server requests a client certificate it includes a list of CAs names which it will accept. Browsers will only let you select certificates from the list on the grounds that there is little point presenting a certificate which the server will reject.
+
+The solution is to add the relevant CA certificate to your servers "trusted CA list". How you do this depends on the server software in uses. You can print out the servers list of acceptable CAs using the OpenSSL s_client tool:
+
+openssl s_client -connect www.some.host:443 -prexit <ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>Another Password less auth: ssh!</h1>
+
+ssh-keygen
+http://www.biostat.jhsph.edu/bit/nopassword.html
+Setting Up Password-less Logins with SSH 
+
+
+
+keytool
+
+openssl
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>Tomcat and client SSL certificates</h1>
+
+http://virgo47.wordpress.com/2010/08/23/tomcat-web-application-with-ssl-client-certificates/
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>Checking Using OpenSSL
+</h1>
+
+http://www.sslshopper.com/article-most-common-openssl-commands.html
+
+
+
+Checking Using OpenSSL
+
+If you need to check the information within a Certificate, CSR or Private Key, use these commands. You can also check CSRs and check certificates using our online tools.
+
+    Check a Certificate Signing Request (CSR)
+<pre>
+    openssl req -text -noout -verify -in CSR.csr
+</pre>
+
+    Check a private key
+
+<pre>
+    openssl rsa -in privateKey.key -check
+</pre>
+
+    Check a certificate
+
+<pre>
+    openssl x509 -in certificate.crt -text -noout
+</pre>
+
+    Check a PKCS#12 file (.pfx or .p12)
+
+<pre>
+    openssl pkcs12 -info -in keyStore.p12
+</pre>
+
+
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+
+
+
+<div class="slide">
+<h1>General OpenSSL Commands</h1>
+
+These commands allow you to generate CSRs, Certificates, Private Keys and do other miscellaneous tasks.
+
+    Generate a new private key and Certificate Signing Request
+
+<pre>
+openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key
+</pre>
+
+    Generate a self-signed certificate (see How to Create and Install an Apache Self Signed Certificate for more info)
+
+<pre>
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt
+</pre>
+
+    Generate a certificate signing request (CSR) for an existing private key
+
+<pre>
+openssl req -out CSR.csr -key privateKey.key -new
+</pre>
+
+    Generate a certificate signing request based on an existing certificate
+
+<pre>
+openssl x509 -x509toreq -in certificate.crt -out CSR.csr -signkey privateKey.key
+</pre>
+
+    Remove a passphrase from a private key
+
+<pre>
+openssl rsa -in privateKey.pem -out newPrivateKey.pem
+</pre>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>Debugging Using OpenSSL</h1>
+
+If you are receiving an error that the private doesn't match the certificate or that a certificate that you installed to a site is not trusted, try one of these commands. If you are trying to verify that an SSL certificate is installed correctly, be sure to check out the SSL Checker.
+
+    Check an MD5 hash of the public key to ensure that it matches with what is in a CSR or private key
+
+ <pre>
+openssl x509 -noout -modulus -in certificate.crt | openssl md5
+openssl rsa -noout -modulus -in privateKey.key | openssl md5
+openssl req -noout -modulus -in CSR.csr | openssl md5
+</pre>
+
+    Check an SSL connection. All the certificates (including Intermediates) should be displayed
+
+<pre>
+openssl s_client -connect www.paypal.com:443
+</pre>
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+
+
+
+<div class="slide">
+<h1>Converting Using OpenSSL</h1>
+Converting Using OpenSSL
+
+These commands allow you to convert certificates and keys to different formats to make them compatible with specific types of servers or software. For example, you can convert a normal PEM file that would work with Apache to a PFX (PKCS#12) file and use it with Tomcat or IIS. Use our SSL Converter to convert certificates without messing with OpenSSL.
+
+    Convert a DER file (.crt .cer .der) to PEM
+
+<pre>
+openssl x509 -inform der -in certificate.cer -out certificate.pem
+</pre>
+
+    Convert a PEM file to DER
+
+<pre>
+openssl x509 -outform der -in certificate.pem -out certificate.der
+</pre>
+
+    Convert a PKCS#12 file (.pfx .p12) containing a private key and certificates to PEM
+
+<pre>
+openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes
+</pre>
+
+    You can add -nocerts to only output the private key or add -nokeys to only output the certificates.
+    Convert a PEM certificate file and a private key to PKCS#12 (.pfx .p12)
+
+<pre>
+    openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt
+</pre>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+
+
+<div class="slide">
+<h1>DER vs PEM</h1>
+
+8.6 Encoding and Decoding Objects
+Generating key pairs and keeping them in memory all of the time isn't very useful. It's often
+desirable to generate a key pair and save it to a file. Conversely, if a key pair is saved in a file, it
+also needs to be readable from the file. One solution to the problem is simply to write the data
+members from the various objects that we've discussed to a format of our own design. Doing this
+will certainly work, but it has the major drawback of not being compatible with any other software
+with which we may want to use our keys.
+As luck would have it, OpenSSL supports two standard formats for storing and exchanging key
+pairs. The first is binary form known as DER(Distinguished Encoding Rules). This type of file is
+suitable for use in binary files or for transfer over a network connection, but is not ideal for all
+situations, particularly text-based communications such as email. The second format that
+OpenSSL supports is known as PEM (Privacy Enhanced Mail), which is defined in RFCs 1421,
+1422, 1423, and 1424. PEM data is base64-encoded and provides the ability to encrypt the data
+before encoding it.
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>X.509</h1>
+http://en.wikipedia.org/wiki/X.509
+X.509
+From Wikipedia, the free encyclopedia
+Jump to: navigation, search
+
+In cryptography, X.509 is an ITU-T standard for a public key infrastructure (PKI) and Privilege Management Infrastructure (PMI). X.509 specifies, amongst other things, standard formats for public key certificates, certificate revocation lists, attribute certificates, and a certification path validation algorithm.
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>PKCS #12</h1>
+
+In cryptography, PKCS #12 is one of the family of standards called Public-Key Cryptography Standards (PKCS), published by RSA Laboratories. It defines a file format commonly used to store X.509 private keys with accompanying public key certificates, protected with a password-based symmetric key
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>Certificate filename extensions</h1>Certificate filename extensions
+
+Common filename extensions for X.509 certificates are:[citation needed]
+
+<ul>
+<li>.pem - (Privacy Enhanced Mail) Base64 encoded DER certificate, enclosed between "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----"</li>
+<li>.cer, .crt, .der - usually in binary DER form, but Base64-encoded certificates are common too (see .pem above)</li>
+<li>.p7b, .p7c - PKCS#7 SignedData structure without data, just certificate(s) or CRL(s)</li>
+<li>.p12 - PKCS#12, may contain certificate(s) (public) and private keys (password protected)</li>
+<li>.pfx - PFX, predecessor of PKCS#12 (usually contains data in PKCS#12 format, e.g., with PFX files generated in IIS)</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>ftps vs sftp</h1>
+<ul>
+<li>ssh vs ssl</li>
+<li>ssh key are much simpler than ssl keys</li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>Simple File Encryption with OpenSSL</h1>
+Simple File Encryption with OpenSSL
+Published in December 12th, 2007
+Posted by Tom in software
+
+Linux has plenty of powerful encryption software, but what can you use if you just want to secure a couple files quickly? The OpenSSL toolkit works well for this. It comes installed with Ubuntu and can provide stronger encryption than you would ever need.
+
+This is the basic command to encrypt a file:
+
+<pre>
+openssl aes-256-cbc -a -salt -in secrets.txt -out secrets.txt.enc
+</pre>
+
+How does this work?
+
+    openssl is the command for the OpenSSL toolkit.
+    aes-256-cbc is the encryption cipher to be used. (256bit AES is what the United States government uses to encrypt information at the Top Secret level.)
+    -a means that the encrypted output will be base64 encoded, this allows you to view it in a text editor or paste it in an email. This is optional.
+    -salt adds strength to the encryption and should always be used.
+    -in secrets.txt specifies the input file.
+    -out secrets.txt.enc specifies the output file.
+    You will be prompted for a password.
+
+It’s not much use unless you can decrypted it:
+
+<pre>
+openssl aes-256-cbc -d -a -in secrets.txt.enc -out secrets.txt.new
+</pre>
+
+    -d decrypts data.
+    -a tells OpenSSL that the encrypted data is in base64.
+    -in secrets.txt.enc specifies the data to decrypt.
+    -out secrets.txt.new specifies the file to put the decrypted data in.
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>Public – Private key encryption using OpenSSL</h1>
+http://www.devco.net/archives/2006/02/13/public_-_private_key_encryption_using_openssl.php
+<ul>
+
+Public – Private key encryption using OpenSSL
+By R.I. Pienaar on 2006/02/13 in Code, Usefull Things
+
+Sometimes I need to encrypt some stuff but do not want to install PGP or GPG. I typically use OpenSSL for this kind of thing and have written a simple frontend script to achieve strong password based encryption using OpenSSL. Sometimes you need public / private key encryption though, below will show you how to do it using just OpenSSL.
+
+Public/Private key encryption is a method used usually when you want to receive or send data to thirdparties. The system requires everyone to have 2 keys one that they keep secure – the private key – and one that they give to everyone – the public key. Data encrypted using the public key can only ever be unencrypted using the private key. This method of encryption that uses 2 keys is called asymmetric encryption.
+
+So by example if Person A want to send Person B data in a secure fashion she just have to encrypt it with Person B’s public key, only Person B can then open the file using her private key. There are other advantages to this kind of encryption. If I met you in person and gave you my public key, I can send you something electronically using my private key to encrypt it, if the public key you have can decrypt that data then you can trust that it was sent by me, it’s mathematical proof of identity. This is the basis for Digital Signatures.
+
+Using OpenSSL on the command line you’d first need to generate a public and private key, you should password protect this file using the -passout argument, there are many different forms that this argument can take so consult the OpenSSL documentation about that.
+
+ <pre>
+   $ openssl genrsa -out private.pem 1024
+</pre>
+
+This creates a key file called private.pem that uses 1024 bits. This file actually have both the private and public keys, so you should extract the public one from this file:
+
+<pre>
+    $ openssl rsa -in private.pem -out public.pem -outform PEM -pubout
+</pre>
+
+You’ll now have public.pem containing just your public key, you can freely share this with 3rd parties.
+You can test it all by just encrypting something yourself using your public key and then decrypting using your private key, first we need a bit of data to encrypt:
+
+<pre>
+    $ echo 'too many secrets' > file.txt
+</pre>
+
+You now have some data in file.txt, lets encrypt it using OpenSSL and the public key:
+
+<pre>
+    $ openssl rsautl -encrypt -inkey public.pem -pubin -in file.txt -out file.ssl
+</pre>
+
+This creates an encrypted version of file.txt calling it file.ssl, if you look at this file it’s just binary junk, nothing very useful to anyone. Now you can unencrypt it using the private key:
+
+<pre>
+    $ openssl rsautl -decrypt -inkey private.pem -in file.ssl -out decrypted.txt
+</pre>
+
+You will now have an unencrypted file in decrypted.txt:
+
+<pre>
+    $ cat decrypted.txt<br>
+    too many secrets
+</pre>
+
+All of these examples use the RSA encryption method, some hard core mathematical information about it here.
+
+
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+<ul>
+
+<img src="pics/ppp_normal2.png"/>
+
+<img src="pics/ppp_over_ssh.png"/>
+
+
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+-->
+
+
+
+
+
+
+
+<!--
+<div class="slide">
+<h1>PKI, </h1>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>man in the middle</h1>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>CA</h1>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>CRL revocation</h1>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>CSR</h1>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+<ul>
+<li>stunel imaps</li>
+</ul>
+</div>
+
+
+
+<div class="slide">
+<h1></h1>
+<ul>
+<li>TLS</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1></h1>
+<ul>
+<li>openssl_client to test</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1></h1>
+<ul>
+<li>certificate creation</li>
+</ul>
+</div>
+
+
+
+<div class="slide">
+<h1></h1>
+<ul>
+<li>wireshark?</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>clientsidecertificate</h1>
+clientsidecertificate
+<img src="pics/clientsidecertificate.jpg"/>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>ssl_with_ca</h1>
+<img src="pics/ssl_with_ca.gif"/>
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+<img src="pics/goodca.en.png"/>
+<img src="pics/badca.en.png"/>
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+http://www.gomiworld.net/securing-the-web-with-ssl-client-certificates
+
+We need one for the web application, another one for signing our client certificates and then a third for our client. Assuming we only have one client that is. The first certificate is for the server. This is required for basic SSL (https) functionality. In this example we'll create a self signed certificate but for your live servers you should use a certificate signed by a trusted CA (such as Verisign).
+
+
+openssl req -new -x509 -days 365 -sha1 -newkey rsa:1024 -nodes -keyout ssl/server.key -out ssl/server.crt -subj '/O=Seccure/OU=Seccure Labs/CN=test.local'
+
+
+
+Time to create the CA certificate.
+
+
+cd ssl-ca
+openssl req -config openssl.cnf -new -x509 -days 3652 -sha1 -newkey rsa:1024 -keyout private/ca.key -out ca.crt -subj '/O=Seccure/OU=Seccure Root CA'
+
+
+
+Time to create and sign the client certificate.
+
+
+cd /tmp/ssl/clients/
+openssl req -new -sha1 -newkey rsa:1024 -nodes -keyout testuser.key -out testuser.pem -subj '/O=Seccure/OU=Seccure Labs/CN=TestUser'
+
+
+
+This time we have to sign the certificate with our CA certificate. Only certificates signed by us will have access to our web application.
+
+
+mv testuser.pem ../ssl-ca/requests/
+cd ../ssl-ca/
+openssl ca -config openssl.cnf -policy policy_anything -extensions ssl_client -out requests/signed.pem -infiles requests/testuser.pem
+
+
+
+
+In this step we export the certificate to a format that your browser can use, namely PKCS#12.
+
+
+
+mv requests/signed.pem /usr/ssl/clients/testuser.pem
+openssl pkcs12 -export -clcerts -in testuser.pem -inkey testuser.key -out testuser.p12
+
+You should now have 3 certificates(files), server.crt, ca.crt and testuser.p12.
+
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>How do I extract information from a certificate?</h1>
+http://www.madboa.com/geek/openssl/
+
+
+openssl req   -x509 -nodes -days 365   -subj '/C=US/ST=Oregon/L=Portland/CN=www.madboa.com'   -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+
+
+openssl x509 -text -in mycert.pem
+
+
+
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>How do I test a new certificate?
+</h1>
+
+http://www.madboa.com/geek/openssl/
+
+First, launch the test server on the machine on which the certificate will be used. By default, the server will listen on port 4433; you can alter that using the -accept option.
+
+openssl s_server -cert mycert.pem -www
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1> check CSRs</h1>
+If you want to check CSRs on your own computer, run this OpenSSL command:
+
+openssl req -in mycsr.csr -noout -text
+
+     Enter your Certificate Signing Request (CSR):
+
+ 
+
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+
+http://www.globalsign.com/support/csr/serversign_apache.php
+
+
+
+To generate a Certificate Signing Request (CSR), perform the following steps:
+
+PART 1: Generating the Key Pair
+
+    The utility "OpenSSL" is used to generate both Private Key (key) and Certificate Signing request (CSR). OpenSSL is usually installed under /usr/local/ssl/bin. If you have a custom install, you will need to adjust these instructions appropriately.
+    Type the following command at the prompt:
+    openssl genrsa –des3 –out www.mydomain.com.key 2048
+
+    Note: If you do not wish to use a Pass Phrase, do not use the -des3 command. It will however leave the private key unprotected.
+    Enter the PEM Pass Phrase (This MUST be remembered)
+
+    a
+    This will generate a 2048 RSA Private key, and stores it in the file www.mydomain.com.key.
+
+PART 2:Generating the CSR
+
+    Type the following command at the prompt:
+    openssl req –new –key www.mydomain.com.key –out www.mydomain.com.csr
+
+    Note: You will be prompted for the PEM Pass Phrase if you included the "-des3" command. Type it in now.
+
+    c
+
+    NOTE: There is a known issue with Apache/OpenSSL Windows Based Installations. If you recevie an error with the above command, Please enter the following:
+    openssl req -new -key www.mydomain.com.key -out www.mydomain.com.csr -config openssl.cnf
+    Input the information for the Certificate Signing Request. This information will be displayed in the certificate.
+
+    Note: The following characters can not be accepted: < > ~ ! @ # $ % ^ * / \ ( ) ?.,&
+        Country Name (2 letter code) [AU]:GB
+        State or Province Name (full name) [Some-State]:London
+        Locality Name (eg, city) []:London
+        Organization Name (eg, company) [Internet Widgits Pty Ltd]:Global Sign
+        Organizational Unit Name (eg, section) []:IT
+        Common Name (eg, YOUR name) []:www.globalsign.net (Must be the FQDN - Fully Qualifed Domain Name)
+
+    Note: DO NOT Enter the following:
+        Email Address []:
+        A challenge password []:
+        An optional company name []:
+    d
+    Please verify the CSR, to insure all information is correct. Use the following command:
+    openssl req -noout -text -in www.mydomain.com.csr
+    The CSR will now be created, and can be submitted via the website.
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+http://en.wikipedia.org/wiki/Certificate_signing_request
+
+
+Before creating a CSR, the applicant first generates a key pair, keeping the private key secret. The CSR contains information identifying the applicant (such as a distinguished name in the case of an X.509 certificate), and the public key chosen by the applicant.
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>one set per server</h1>
+
+Can I secure multiple servers with a single certificate?
+Sharing certificates on multiple servers increases risk of exposure. Auditing becomes more complex, reducing accountability and control. If a private key becomes compromised, it can be difficult to trace and all servers sharing that certificate are at risk. Because sharing certificates degrades security, the Symantec certificate subscriber agreement prohibits customers from using a certificate on more than one physical server or device at a time, 
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>key set</h1>
+http://docs.redhat.com/docs/en-US/Red_Hat_Network_Satellite/5.0/html/Client_Configuration_Guide/ch-certificates.html
+An organization's SSL infrastructure is generally made up of these SSL keys and certificates:
+
+    Certificate Authority (CA) SSL private key and public certificate — only one set per organization generally generated. The public certificate is digitally signed by its private key. The public certificate is distributed to every system.
+    Web server SSL private key and public certificate — one set per application server. The public certificate is digitally signed by both its private key and the CA SSL private key. We often refer to a Web server's key set; this is because there is an intermediary SSL certificate request that is generated. The details of what this is used for are not important to this discussion. All three are deployed to an RHN Server. 
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+
+http://blog.nategood.com/client-side-certificate-authentication-in-ngi
+
+
+
+# Create the CA Key and Certificate for signing Client Certs
+openssl genrsa -des3 -out ca.key 4096
+openssl req -new -x509 -days 365 -key ca.key -out ca.crt
+
+# Create the Server Key, CSR, and Certificate
+openssl genrsa -des3 -out server.key 1024
+(or openssl genrsa  -out server.key 1024)
+openssl req -new -key server.key -out server.csr
+
+# We're self signing our own server cert here.  This is a no-no in production.
+openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+
+# Create the Client Key and CSR
+openssl genrsa -des3 -out client.key 1024
+openssl req -new -key client.key -out client.csr
+
+# Sign the client certificate with our CA cert.  Unlike signing our own server cert, this is what we want to do.
+openssl x509 -req -days 365 -in client.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out client.crt
+
+
+
+
+
+Configuring nginx
+
+server {
+    listen        443;
+    ssl on;
+    server_name example.com;
+
+    ssl_certificate      /etc/nginx/certs/server.crt;
+    ssl_certificate_key  /etc/nginx/certs/server.key;
+    ssl_client_certificate /etc/nginx/certs/ca.crt;
+    ssl_verify_client optional;
+
+    location / {
+        root           /var/www/example.com/html;
+        fastcgi_pass   127.0.0.1:9000;
+        fastcgi_param  SCRIPT_FILENAME /var/www/example.com/lib/Request.class.php;
+        fastcgi_param  VERIFIED $ssl_client_verify;
+        fastcgi_param  DN $ssl_client_s_dn;
+        include        fastcgi_params;
+    }
+}
+
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+
+Generating the certificates needed by the examples
+
+To create the root CA:
+
+    % openssl req -newkey rsa:1024 -sha1 -keyout rootkey.pem -out rootreq.pem
+    (cp random.pem ~/.rnd)
+    % openssl x509 -req -in rootreq.pem -sha1 -extfile myopenssl.cnf \
+        -extensions v3_ca -signkey rootkey.pem -out rootcert.pem
+    (cp /usr/local/ssl/openssl.cnf myopenssl.cnf)
+    % cat rootcert.pem rootkey.pem  > root.pem
+    % openssl x509  -subject -issuer -noout -in root.pem
+
+
+To create the server CA and sign it with the root CA:
+
+    % openssl req -newkey rsa:1024 -sha1 -keyout serverCAkey.pem -out serverCAreq.pem
+    % openssl x509 -req -in serverCAreq.pem -sha1 -extfile myopenssl.cnf \
+        -extensions v3_ca -CA root.pem  -CAkey root.pem -CAcreateserial  \
+          -out serverCAcert.pem
+    % cat serverCAcert.pem serverCAkey.pem  rootcert.pem > serverCA.pem
+    % openssl x509  -subject -issuer -noout -in serverCA.pem
+     
+
+To create the server's certificate and sign it with the server CA:
+
+    % openssl req -newkey rsa:1024 -sha1 -keyout serverkey.pem -out serverreq.pem
+    % openssl x509 -req -in serverreq.pem -sha1 -extfile myopenssl.cnf \
+        -extensions usr_cert -CA serverCA.pem  -CAkey serverCA.pem -CAcreateserial  \
+          -out servercert.pem
+    % cat servercert.pem serverkey.pem  serverCAcert.pem  rootcert.pem > server.pem
+    % openssl x509  -subject -issuer -noout -in server.pem
+
+To create the client certificate  and sign it with the root CA:
+
+    % openssl req -newkey rsa:1024 -sha1 -keyout clientkey.pem -out clientreq.pem
+    % openssl x509 -req -in clientreq.pem -sha1 -extfile myopenssl.cnf \
+        -extensions usr_cert -CA root.pem  -CAkey root.pem -CAcreateserial  \
+          -out clientcert.pem
+    % cat clientcert.pem clientkey.pem  rootcert.pem > client.pem
+    % openssl x509  -subject -issuer -noout -in client.pem
+
+To create the dh512.pem dh1024.pem:
+
+    % openssl dhparam -check -text -5 512 -out dh512.pem
+    % openssl dhparam -check -text -5 1024  -outdh1024.pem
+
+     
+
+     
+
+      
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+
+http://www.gomiworld.net/securing-the-web-with-ssl-client-certificates
+
+Time to create the CA certificate.
+
+
+cd ssl-ca
+openssl req -config openssl.cnf -new -x509 -days 3652 -sha1 -newkey rsa:1024 -keyout private/ca.key -out ca.crt -subj '/O=Seccure/OU=Seccure Root CA'
+
+Time to create and sign the client certificate.
+
+
+cd /tmp/ssl/clients/
+openssl req -new -sha1 -newkey rsa:1024 -nodes -keyout testuser.key -out testuser.pem -subj '/O=Seccure/OU=Seccure Labs/CN=TestUser'
+
+This time we have to sign the certificate with our CA certificate. Only certificates signed by us will have access to our web application.
+
+
+mv testuser.pem ../ssl-ca/requests/
+cd ../ssl-ca/
+openssl ca -config openssl.cnf -policy policy_anything -extensions ssl_client -out requests/signed.pem -infiles requests/testuser.pem
+
+In this step we export the certificate to a format that your browser can use, namely PKCS#12.
+
+
+mv requests/signed.pem /usr/ssl/clients/testuser.pem
+openssl pkcs12 -export -clcerts -in testuser.pem -inkey testuser.key -out testuser.p12
+
+You should now have 3 certificates(files), server.crt, ca.crt and testuser.p12.
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>subject/issuer</h1>
+
+openssl s_client -connect google.com:443
+
+Certificate chain
+ 0 s:/C=US/ST=California/L=Mountain View/O=Google Inc/CN=*.google.com
+   i:/C=US/O=Google Inc/CN=Google Internet Authority
+ 1 s:/C=US/O=Google Inc/CN=Google Internet Authority
+   i:/C=US/O=Equifax/OU=Equifax Secure Certificate Authority
+
+
+
+openssl s_client -connect redhat.com:443
+
+Certificate chain
+ 0 s:/serialNumber=XeSJbTqpNUErLA/DI3Cs5qXyDcU1HYm2/C=US/ST=North Carolina/L=Raleigh/O=Red Hat Inc/OU=Web Operations/CN=*.redhat.com
+   i:/C=US/O=GeoTrust, Inc./CN=GeoTrust SSL CA
+ 1 s:/C=US/O=GeoTrust, Inc./CN=GeoTrust SSL CA
+   i:/C=US/O=GeoTrust Inc./CN=GeoTrust Global CA
+ 2 s:/C=US/O=GeoTrust Inc./CN=GeoTrust Global CA
+   i:/C=US/O=Equifax/OU=Equifax Secure Certificate Authority
+
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1></h1>
+http://www.question-defense.com/2008/10/26/rsa-server-certificate-is-a-ca-certificate-basicconstraints-ca-true
+
+The below error will be seen in the ssl_error_log typically located in /var/log/httpd
+
+
+[Sat Oct 25 22:38:33 2008] [warn] RSA server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Sat Oct 25 22:38:33 2008] [warn] RSA server certificate CommonName (CN) `server1.example.com' does NOT match server name!?
+
+
+An example of what might cause the initial CommonName error and could be resolved by looking in error_log in detail is another error like the below.
+
+[Sat Oct 25 23:17:12 2008] [error] Init: Unable to read server certificate from file /etc/httpd/ssl/yourcert.crt
+
+[root@server ssl]#chmod 644 yourcert.crt
+
+httpd.conf
+ServerName www.yourdomain.com
+
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>subjectAltName</h1>
+
+http://bloggingabout.net/blogs/ramon/archive/2009/03/08/howto-create-a-certificate-request-with-subjectaltnames-with-openssl-on-windows.aspx
+
+
+
+    Create a private key for your certificate: openssl genrsa 2048 >multicert.key
+    Create a configuration file with your certificate data
+
+# -------------- BEGIN custom multicert.cnf -----
+HOME = .
+oid_section = new_oids
+[ new_oids ]
+[ req ]
+default_days = 730
+distinguished_name = req_distinguished_name
+encrypt_key = no
+string_mask = nombstr
+req_extensions = v3_req # Extensions to add to certificate request
+[ req_distinguished_name ]
+commonName              = Your nice common name
+commonName_default      = www.mydomain.com
+commonName_max = 64
+[ v3_req ]
+subjectAltName=DNS:ftp.mydomain.com,DNS:blog.mydomain.com,DNS:*.mydomain.com
+# -------------- END custom openssl.cnf -----
+
+
+But, as far as I know, these are your only two alternatives:
+either use enviroment variables or write a custom conf file...
+
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+
+<div class="slide">
+<h1>subject-alternate-name.</h1>
+<ul>
+subjectAltName=${ENV::SAN}.
+
+http://tools.ietf.org/html/rfc3280#page-33
+
+
+
+http://nils.toedtmann.net/pub/subjectAltName.txt
+https://wiki.ssystems.de/doku.php?id=ssl_vhosts
+
+
+    and in [ v3_req ] I added:
+
+subjectAltName=${ENV::SAN}
+
+    So if you run openssl like this (I include the CN in the SANs):
+
+export SAN="DNS:www.example.com, DNS:www1.example.org, DNS:www2.example.org" \
+openssl req \
+  -new -newkey rsa:2048 -nodes \
+  -subj "/CN=www.example.com/O=ssystems/L=Berlin/ST=Berlin/C=DE" \
+  -keyout mykey.pem -out myreq.pem
+
+It will fill in subjectAltName with the contents of the SAN variable, otherwise will fill it with the contents specified at the top of the file (email:noc@example.com).
+
+If you create a request from now on you always have to export at least the CN as SAN:
+
+CN="www.example.com"
+SAN="DNS:$CN"
+export SAN CN
+openssl req \
+  -new -newkey rsa:2048 -nodes \
+  -subj "/CN=$CN/O=ssystems/L=Berlin/ST=Berlin/C=DE" \
+  -keyout mykey.pem -out myreq.pem
+
+Verify the request
+
+Before you send the request to your CA of choice, you may check if the request contains the extensions:
+
+/opt/wwwroot/bin/openssl req -text -in myreq.pem
+
+You should see a block like this:
+
+      Attributes:
+        Requested Extensions:
+            X509v3 Subject Alternative Name:
+                DNS:www.example.com, DNS::www1.example.org, DNS::www2.example.org
+            X509v3 Basic Constraints:
+                CA:FALSE
+            X509v3 Key Usage:
+                Digital Signature, Non Repudiation, Key Encipherment
+
+
+
+
+<li></li>
+<li></li>
+</ul>
+</div>
+-->
+<div class="slide">
+
+<h1>SSL Questions</h1>
+
+<ol>
+<li>Question: How old is conventional cryptography?</li>
+
+
+<li>Question: How old is Public key cryptography?</li>
+
+
+<li>Question: What is the difference between encryption and signature?</li>
+
+
+<li>Question: Is PEM binary or ASCII?</li>
+
+
+<li>Question: Is RSA a public key or conventional algorithm?</li>
+
+
+<li>Question: Is DES a public key or conventional algorithm?</li>
+
+
+<li>Question: Is SSL/TLS using public key or conventional cryptography?</li>
+
+
+<li>Question: At what level in the TCP/IP stack is SSL/TLS</li>
+
+
+<li>Question: Can SSL/TLS be used over UDP?</li>
+
+
+<li>Question: Can SSL/TLS be used to secure other protocols than HTTP?</li>
+
+
+
+</ol>
+
+</div>
+</body>
+</html>
